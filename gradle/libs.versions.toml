@@ -10,6 +10,7 @@ gradle-plugin = "8.1.2"
 # buildscript.dependencies
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradle-plugin" }
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+jetbrains-dokka-plugin = "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.18"
 
 # dependencies
 androidx-annotation = "androidx.annotation:annotation:1.7.0"
