@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+  id("com.android.library")
+  id("kotlin-android")
 }
 
 val archivesBaseName = "groupie"
@@ -8,32 +8,32 @@ val group = "com.github.lisawray.groupie"
 val version = "2.10.1"
 
 android {
-    namespace = "com.xwray.groupie"
-    compileSdk = libs.versions.compileSdk.get().toInt()
+  namespace = "com.xwray.groupie"
+  compileSdk = libs.versions.compileSdk.get().toInt()
 
-    defaultConfig {
-        minSdk = libs.versions.minSdk.get().toInt()
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  defaultConfig {
+    minSdk = libs.versions.minSdk.get().toInt()
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  }
+  signingConfigs {
+    register("release") {
     }
-    signingConfigs {
-        register("release") {
-        }
+  }
+  buildTypes {
+    named("release") {
+      signingConfig = signingConfigs.getByName("release")
+      isMinifyEnabled = false
     }
-    buildTypes {
-        named("release") {
-            signingConfig = signingConfigs.getByName("release")
-            isMinifyEnabled = false
-        }
-    }
-    lint {
-        abortOnError = false
-    }
+  }
+  lint {
+    abortOnError = false
+  }
 }
 
 dependencies {
-    implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.annotation)
+  implementation(libs.androidx.recyclerview)
+  implementation(libs.androidx.annotation)
 
-    testImplementation(libs.junit)
-    testImplementation(libs.mockito)
+  testImplementation(libs.junit)
+  testImplementation(libs.mockito)
 }
