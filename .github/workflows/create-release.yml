@@ -3,7 +3,7 @@ name: Create GitHub Release
 on:
   push:
     tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"  # Matches "v1.2.3"
+      - "[0-9]+.[0-9]+.[0-9]+"  # Matches "1.2.3"
 
 jobs:
   publish-release:
@@ -23,12 +23,6 @@ jobs:
     - name: Publish Library Locally
       run: ./gradlew :library:publish --info
 
-    - name: Compute Artifact Locations
-      # Remove prefixes from tag, leaving only the X.Y.Z version string. ("refs/tags/v111.22.33" --> "111.22.33")
-      run: |
-        VERSION=$(echo "${{ github.ref }}" | sed -E 's|^[^0-9]*([0-9]+\.[0-9]+\.[0-9]+).*$|\1|')
-        echo "VERSION=$VERSION" >> $GITHUB_ENV
-
     - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
@@ -44,8 +38,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: library/build/repo/com/github/chimbori/groupie/groupie/${{ env.VERSION }}/groupie-${{ env.VERSION }}-sources.jar
-        asset_name: groupie-${{ env.VERSION }}-sources.jar
+        asset_path: library/build/repo/com/github/chimbori/groupie/groupie/${{ github.ref }}/groupie-${{ github.ref }}-sources.jar
+        asset_name: groupie-${{ github.ref }}-sources.jar
         asset_content_type: application/java-archive
 
     - name: Upload Android Archive to GitHub Release
@@ -54,7 +48,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: library/build/repo/com/github/chimbori/groupie/groupie/${{ env.VERSION }}/groupie-${{ env.VERSION }}.aar
-        asset_name: groupie-${{ env.VERSION }}.aar
+        asset_path: library/build/repo/com/github/chimbori/groupie/groupie/${{ github.ref }}/groupie-${{ github.ref }}.aar
+        asset_name: groupie-${{ github.ref }}.aar
         asset_content_type: application/java-archive
 
