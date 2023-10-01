@@ -6,7 +6,7 @@ android {
     compileSdkVersion rootProject.sdkVersion
 
     defaultConfig {
-        applicationId "com.xwray.groupie.example.viewbinding"
+        applicationId "com.xwray.groupie.example"
         minSdkVersion rootProject.minimumSdkVersion
         targetSdkVersion rootProject.sdkVersion
         versionCode 1
