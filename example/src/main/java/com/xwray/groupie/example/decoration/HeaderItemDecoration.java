@@ -28,14 +28,16 @@ public class HeaderItemDecoration extends RecyclerView.ItemDecoration {
         return viewType == headerViewType;
     }
 
-    @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         if (!isHeader(view, parent)) return;
 
         outRect.left = sidePaddingPixels;
         outRect.right = sidePaddingPixels;
     }
 
-    @Override public void onDraw(@NonNull Canvas c, RecyclerView parent, @NonNull RecyclerView.State state) {
+    @Override
+    public void onDraw(@NonNull Canvas c, RecyclerView parent, @NonNull RecyclerView.State state) {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
             if (!isHeader(child, parent)) continue;

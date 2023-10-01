@@ -14,7 +14,7 @@ import com.xwray.groupie.GroupieViewHolder;
  * An ItemDecoration which applies an even visual padding on the left and right edges of a grid and
  * between each item, while also applying an even amount of inset to each item.  This ensures that
  * all items remain the same size.
- *
+ * <p>
  * It assumes all items in a row have the same span size, and it assumes it's the only item
  * decorator.
  */
@@ -42,7 +42,8 @@ public class InsetItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         if (!isInset(view, parent)) return;
 
         GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
@@ -61,7 +62,8 @@ public class InsetItemDecoration extends RecyclerView.ItemDecoration {
         outRect.bottom = padding;
     }
 
-    @Override public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+    @Override
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         RecyclerView.LayoutManager lm = parent.getLayoutManager();
 
         int childCount = parent.getChildCount();

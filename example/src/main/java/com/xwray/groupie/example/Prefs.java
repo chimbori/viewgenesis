@@ -2,7 +2,6 @@ package com.xwray.groupie.example;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import androidx.preference.PreferenceManager;
 
 public class Prefs {
@@ -49,12 +48,27 @@ public class Prefs {
         return showBounds;
     }
 
+    void setShowBounds(boolean showBounds) {
+        this.showBounds = showBounds;
+        prefs.edit().putBoolean(KEY_BOUNDS, showBounds).apply();
+    }
+
     public boolean getUseAsync() {
         return useAsync;
     }
 
+    void setUseAsync(boolean useAsync) {
+        this.useAsync = useAsync;
+        prefs.edit().putBoolean(KEY_ASYNC, useAsync).apply();
+    }
+
     public boolean getShowOffsets() {
         return showOffsets;
+    }
+
+    void setShowOffsets(boolean showOffsets) {
+        this.showOffsets = showOffsets;
+        prefs.edit().putBoolean(KEY_OFFSETS, showOffsets).apply();
     }
 
     public boolean getShowColor() {
@@ -64,21 +78,6 @@ public class Prefs {
     public void setShowColor(boolean showColor) {
         this.showColor = showColor;
         prefs.edit().putBoolean(KEY_COLOR, showColor).apply();
-    }
-
-    void setShowOffsets(boolean showOffsets) {
-        this.showOffsets = showOffsets;
-        prefs.edit().putBoolean(KEY_OFFSETS, showOffsets).apply();
-    }
-
-    void setShowBounds(boolean showBounds) {
-        this.showBounds = showBounds;
-        prefs.edit().putBoolean(KEY_BOUNDS, showBounds).apply();
-    }
-
-    void setUseAsync(boolean useAsync) {
-        this.useAsync = useAsync;
-        prefs.edit().putBoolean(KEY_ASYNC, useAsync).apply();
     }
 
 }

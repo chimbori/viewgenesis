@@ -4,7 +4,6 @@ import com.xwray.groupie.Group
 import com.xwray.groupie.GroupDataObserver
 import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
-import java.util.*
 
 /**
  * A simple, non-editable, non-nested group of Items which displays a list as vertical columns.

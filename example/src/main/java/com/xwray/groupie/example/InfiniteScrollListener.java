@@ -5,18 +5,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class InfiniteScrollListener extends RecyclerView.OnScrollListener {
 
+    private final int visibleThreshold = 5; // The minimum amount of items to have below your current scroll position before loading more.
     private int previousTotal = 0; // The total number of items in the dataset after the last load
     private boolean loading = true; // True if we are still waiting for the last set of data to load.
-    private final int visibleThreshold = 5; // The minimum amount of items to have below your current scroll position before loading more.
     private int firstVisibleItem, visibleItemCount, totalItemCount;
     private int currentPage = 0;
-    private LinearLayoutManager linearLayoutManager;
-    private Runnable loadMore = new Runnable() {
+    private final Runnable loadMore = new Runnable() {
         @Override
         public void run() {
             onLoadMore(currentPage);
         }
     };
+    private LinearLayoutManager linearLayoutManager;
 
     public InfiniteScrollListener(LinearLayoutManager linearLayoutManager) {
         this.linearLayoutManager = linearLayoutManager;

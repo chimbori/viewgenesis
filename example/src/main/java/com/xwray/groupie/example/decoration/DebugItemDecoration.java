@@ -13,11 +13,14 @@ import com.xwray.groupie.example.R;
 
 public class DebugItemDecoration extends RecyclerView.ItemDecoration {
 
+    private final Paint paint = new Paint();
+    private final Prefs prefs;
+    private final int leftColor;
+    private final int topColor;
+    private final int rightColor;
+    private final int bottomColor;
     private int decoratedLeft, decoratedTop, decoratedRight, decoratedBottom;
     private int left, top, right, bottom;
-    private Paint paint = new Paint();
-    private Prefs prefs;
-    private int leftColor, topColor, rightColor, bottomColor;
 
     public DebugItemDecoration(Context context) {
         prefs = Prefs.get(context);
@@ -27,7 +30,8 @@ public class DebugItemDecoration extends RecyclerView.ItemDecoration {
         bottomColor = ContextCompat.getColor(context, R.color.indigo_200);
     }
 
-    @Override public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+    @Override
+    public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         if (!(prefs.getShowBounds() || prefs.getShowOffsets())) return;
 
         int childCount = parent.getChildCount();
