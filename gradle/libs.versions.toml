@@ -6,6 +6,7 @@ minSdk = "14"
 kotlin = "1.9.10"
 gradle-plugin = "8.1.2"
 
+androidx-lifecycle = "2.4.1"
 
 [libraries]
 # buildscript.dependencies
@@ -14,5 +15,13 @@ kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 
 # dependencies
 androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
+androidx-cardview = "androidx.cardview:cardview:1.0.0"
+androidx-core-ktx = "androidx.core:core-ktx:1.7.0"
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-preference = "androidx.preference:preference-ktx:1.2.0"
+androidx-recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+androidx-vectordrawable-animated = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
+androidx-vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
 junit = "junit:junit:4.13.2"
+material = "com.google.android.material:material:1.4.0"
 mockito = "org.mockito:mockito-core:3.3.3"
