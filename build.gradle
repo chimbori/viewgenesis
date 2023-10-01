@@ -36,23 +36,6 @@ allprojects { project ->
         jcenter()
         maven { url "https://jitpack.io" }
     }
-
-    afterEvaluate {
-        if (project.hasProperty('android')) {
-            android {
-                // use a custom location for the Lint reports so that it's easy to archive them in Circle CI
-                lintOptions {
-                    htmlOutput file("$lintReportsDir/${project.name}/lint-report.html")
-                }
-                // it would be nice to do the same with test results/reports
-                // but it doesn't work: https://issuetracker.google.com/issues/37132023
-                testOptions {
-                    reportDir "$testReportsDir/${project.name}"
-                    resultsDir "$testResultsDir/${project.name}"
-                }
-            }
-        }
-    }
 }
 
 task clean(type: Delete) {
