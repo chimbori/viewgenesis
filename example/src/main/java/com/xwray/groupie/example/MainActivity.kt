@@ -10,6 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.chimbori.groupie.example.R
+import com.chimbori.groupie.example.databinding.ActivityMainBinding
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupieAdapter
@@ -17,7 +19,6 @@ import com.xwray.groupie.OnItemClickListener
 import com.xwray.groupie.OnItemLongClickListener
 import com.xwray.groupie.Section
 import com.xwray.groupie.TouchCallback
-import com.xwray.groupie.example.databinding.ActivityMainBinding
 import com.xwray.groupie.example.decoration.CarouselItemDecoration
 import com.xwray.groupie.example.decoration.DebugItemDecoration
 import com.xwray.groupie.example.decoration.SwipeTouchCallback

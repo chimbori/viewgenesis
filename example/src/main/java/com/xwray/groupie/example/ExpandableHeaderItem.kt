@@ -3,9 +3,10 @@ package com.xwray.groupie.example
 import android.graphics.drawable.Animatable
 import android.view.View
 import androidx.annotation.StringRes
+import com.chimbori.groupie.example.R
+import com.chimbori.groupie.example.databinding.ItemHeaderBinding
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.ExpandableItem
-import com.xwray.groupie.example.databinding.ItemHeaderBinding
 import com.xwray.groupie.example.item.HeaderItem
 
 class ExpandableHeaderItem(

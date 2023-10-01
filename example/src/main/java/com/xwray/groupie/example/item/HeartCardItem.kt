@@ -3,10 +3,10 @@ package com.xwray.groupie.example.item
 import android.graphics.drawable.Animatable
 import android.view.View
 import androidx.annotation.ColorInt
+import com.chimbori.groupie.example.R
+import com.chimbori.groupie.example.databinding.ItemHeartCardBinding
 import com.xwray.groupie.example.INSET
 import com.xwray.groupie.example.INSET_TYPE_KEY
-import com.xwray.groupie.example.R
-import com.xwray.groupie.example.databinding.ItemHeartCardBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
 class HeartCardItem(
