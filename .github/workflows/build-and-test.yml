@@ -3,7 +3,7 @@ name: Build Example Apps and Run Tests
 on:
   push:
     branches:
-      - master
+      - "*"
 
 jobs:
   build-and-test:
