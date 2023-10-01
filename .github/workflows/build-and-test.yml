@@ -22,8 +22,6 @@ jobs:
 
     - name: Build Example App - ViewBinding
       run: ./gradlew :example-viewbinding:assembleRelease
-    - name: Build Example App - DataBinding
-      run: ./gradlew :example-databinding:assembleRelease
 
     - name: Run Lint
       run: ./gradlew lint --console plain
