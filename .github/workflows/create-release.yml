@@ -1,0 +1,60 @@
+name: Create GitHub Release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"  # Matches "v1.2.3"
+
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Checkout Submodules
+      uses: actions/checkout@v3
+    - name: Validate Gradle Wrapper
+      uses: gradle/wrapper-validation-action@v1
+
+    - name: Publish Library Locally
+      run: ./gradlew :library:publish --info
+
+    - name: Compute Artifact Locations
+      # Remove prefixes from tag, leaving only the X.Y.Z version string. ("refs/tags/v111.22.33" --> "111.22.33")
+      run: |
+        VERSION=$(echo "${{ github.ref }}" | sed -E 's|^[^0-9]*([0-9]+\.[0-9]+\.[0-9]+).*$|\1|')
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+
+    - name: Upload Sources to GitHub Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: library/build/repo/com/github/chimbori/groupie/groupie/${{ env.VERSION }}/groupie-${{ env.VERSION }}-sources.jar
+        asset_name: groupie-${{ env.VERSION }}-sources.jar
+        asset_content_type: application/java-archive
+
+    - name: Upload Android Archive to GitHub Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: library/build/repo/com/github/chimbori/groupie/groupie/${{ env.VERSION }}/groupie-${{ env.VERSION }}.aar
+        asset_name: groupie-${{ env.VERSION }}.aar
+        asset_content_type: application/java-archive
+
