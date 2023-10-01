@@ -20,8 +20,8 @@ jobs:
     - name: Validate Gradle Wrapper
       uses: gradle/wrapper-validation-action@v1
 
-    - name: Build Example App - ViewBinding
-      run: ./gradlew :example-viewbinding:assembleRelease
+    - name: Build Example App
+      run: ./gradlew :example:assembleRelease
 
     - name: Run Lint
       run: ./gradlew lint --console plain

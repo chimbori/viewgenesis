@@ -1,4 +1,4 @@
 include(
-  ":example-viewbinding",
+  ":example",
   ":library",
 )
