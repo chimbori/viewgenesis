@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-  namespace = "com.xwray.groupie.example"
+  namespace = "com.chimbori.groupie.example"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
-    applicationId = "com.xwray.groupie.example"
+    applicationId = "com.chimbori.groupie.example"
     targetSdk = libs.versions.targetSdk.get().toInt()
     minSdk = libs.versions.minSdk.get().toInt()
     vectorDrawables.useSupportLibrary = true

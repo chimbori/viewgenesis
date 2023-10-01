@@ -4,11 +4,11 @@ plugins {
 }
 
 val archivesBaseName = "groupie"
-val group = "com.github.lisawray.groupie"
+val group = "com.github.chimbori.groupie"
 val version = "2.10.1"
 
 android {
-  namespace = "com.xwray.groupie"
+  namespace = "com.chimbori.groupie"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
