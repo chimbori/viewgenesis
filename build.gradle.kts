@@ -6,7 +6,7 @@ val testResultsDir = "${rootProject.buildDir}/test-results"
 
 buildscript {
   extra["kotlin_version"] = "1.9.10"
-  extra["android_plugin_version"] = "7.4.2"
+  extra["android_plugin_version"] = "8.1.1"
   extra["sdkVersion"] = 33
   extra["minimumSdkVersion"] = 14
   extra["viewbinding_version"] = "7.4.2"
