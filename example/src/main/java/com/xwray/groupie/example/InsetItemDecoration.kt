@@ -1,8 +1,8 @@
-package com.xwray.groupie.example.viewbinding
+package com.xwray.groupie.example
 
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
-import com.xwray.groupie.example.core.decoration.InsetItemDecoration
+import com.xwray.groupie.example.decoration.InsetItemDecoration
 
 class InsetItemDecoration(
     @ColorInt backgroundColor: Int,

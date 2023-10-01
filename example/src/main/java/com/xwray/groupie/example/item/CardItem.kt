@@ -1,11 +1,11 @@
-package com.xwray.groupie.example.viewbinding.item
+package com.xwray.groupie.example.item
 
 import android.view.View
 import androidx.annotation.ColorInt
-import com.xwray.groupie.example.viewbinding.INSET
-import com.xwray.groupie.example.viewbinding.INSET_TYPE_KEY
-import com.xwray.groupie.example.viewbinding.R
-import com.xwray.groupie.example.viewbinding.databinding.ItemCardBinding
+import com.xwray.groupie.example.INSET
+import com.xwray.groupie.example.INSET_TYPE_KEY
+import com.xwray.groupie.example.R
+import com.xwray.groupie.example.databinding.ItemCardBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
 open class CardItem @JvmOverloads constructor(

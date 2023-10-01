@@ -1,4 +1,4 @@
-package com.xwray.groupie.example.core;
+package com.xwray.groupie.example;
 
 import android.content.Context;
 import android.content.SharedPreferences;

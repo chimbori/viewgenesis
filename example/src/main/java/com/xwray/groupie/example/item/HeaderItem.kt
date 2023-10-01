@@ -1,10 +1,10 @@
-package com.xwray.groupie.example.viewbinding.item
+package com.xwray.groupie.example.item
 
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.xwray.groupie.example.viewbinding.R
-import com.xwray.groupie.example.viewbinding.databinding.ItemHeaderBinding
+import com.xwray.groupie.example.R
+import com.xwray.groupie.example.databinding.ItemHeaderBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
 open class HeaderItem @JvmOverloads constructor(

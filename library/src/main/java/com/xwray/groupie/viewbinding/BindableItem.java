@@ -1,12 +1,9 @@
 package com.xwray.groupie.viewbinding;
 
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.viewbinding.ViewBinding;
-
-import android.view.View;
-
 import com.xwray.groupie.Item;
-
 import java.util.List;
 
 /**

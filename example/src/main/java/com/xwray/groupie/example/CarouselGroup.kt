@@ -1,13 +1,13 @@
-package com.xwray.groupie.example.viewbinding
+package com.xwray.groupie.example
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.xwray.groupie.Group
-import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.GroupDataObserver
+import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.Item
-import com.xwray.groupie.example.viewbinding.item.CarouselItem
+import com.xwray.groupie.example.item.CarouselItem
 
 /**
  * A group that contains a single carousel item and is empty when the carousel is empty

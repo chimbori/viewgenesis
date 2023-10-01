@@ -1,7 +1,7 @@
-package com.xwray.groupie.example.viewbinding
+package com.xwray.groupie.example
 
 import androidx.annotation.ColorInt
-import com.xwray.groupie.example.core.decoration.HeaderItemDecoration
+import com.xwray.groupie.example.decoration.HeaderItemDecoration
 
 class HeaderItemDecoration(
     @ColorInt background: Int,

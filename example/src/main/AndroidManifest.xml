@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xwray.groupie.example.viewbinding">
+    package="com.xwray.groupie.example">
 
     <application
         android:allowBackup="true"
@@ -18,9 +18,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.xwray.groupie.example.core.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/SettingsTheme"></activity>
+            android:theme="@style/SettingsTheme" />
 
     </application>
 

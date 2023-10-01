@@ -1,4 +1,4 @@
-package com.xwray.groupie.example.viewbinding
+package com.xwray.groupie.example
 
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupDataObserver

@@ -1,4 +1,4 @@
-package com.xwray.groupie.example.viewbinding.item
+package com.xwray.groupie.example.item
 
 import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.ItemTouchHelper

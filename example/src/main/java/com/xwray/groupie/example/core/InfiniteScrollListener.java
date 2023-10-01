@@ -1,4 +1,4 @@
-package com.xwray.groupie.example.core;
+package com.xwray.groupie.example;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;

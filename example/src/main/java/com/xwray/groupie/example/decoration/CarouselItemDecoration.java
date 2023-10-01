@@ -1,12 +1,12 @@
-package com.xwray.groupie.example.core.decoration;
+package com.xwray.groupie.example.decoration;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
 
 public class CarouselItemDecoration extends RecyclerView.ItemDecoration {
 

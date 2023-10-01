@@ -1,12 +1,10 @@
-package com.xwray.groupie.example.core.decoration;
+package com.xwray.groupie.example.decoration;
 
 import android.graphics.Canvas;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.View;
-
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 import com.xwray.groupie.TouchCallback;
 
 public abstract class SwipeTouchCallback extends TouchCallback {

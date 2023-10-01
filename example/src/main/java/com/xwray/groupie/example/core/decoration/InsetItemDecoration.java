@@ -1,14 +1,13 @@
-package com.xwray.groupie.example.core.decoration;
+package com.xwray.groupie.example.decoration;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Dimension;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
-
 import com.xwray.groupie.GroupieViewHolder;
 
 /**

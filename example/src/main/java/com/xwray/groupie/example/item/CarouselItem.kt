@@ -1,4 +1,4 @@
-package com.xwray.groupie.example.viewbinding.item
+package com.xwray.groupie.example.item
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.OnItemClickListener
-import com.xwray.groupie.example.viewbinding.R
-import com.xwray.groupie.example.viewbinding.databinding.ItemCarouselBinding
+import com.xwray.groupie.example.R
+import com.xwray.groupie.example.databinding.ItemCarouselBinding
 import com.xwray.groupie.viewbinding.BindableItem
 import com.xwray.groupie.viewbinding.GroupieViewHolder
 

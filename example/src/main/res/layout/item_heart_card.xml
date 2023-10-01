@@ -20,7 +20,7 @@
         android:textColor="@color/background"
         tools:text="This is text here" />
 
-    <com.xwray.groupie.example.core.widget.CheckableImageView
+    <com.xwray.groupie.example.widget.CheckableImageView
         android:id="@+id/favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

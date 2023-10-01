@@ -1,17 +1,15 @@
-package com.xwray.groupie.example.core.decoration;
+package com.xwray.groupie.example.decoration;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
-
-import com.xwray.groupie.example.core.Prefs;
-import com.xwray.groupie.example.viewbinding.R;
+import com.xwray.groupie.example.Prefs;
+import com.xwray.groupie.example.R;
 
 public class DebugItemDecoration extends RecyclerView.ItemDecoration {
 

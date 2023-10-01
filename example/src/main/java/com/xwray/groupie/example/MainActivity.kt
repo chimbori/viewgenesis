@@ -1,4 +1,4 @@
-package com.xwray.groupie.example.viewbinding
+package com.xwray.groupie.example
 
 import android.content.Intent
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
@@ -17,22 +17,19 @@ import com.xwray.groupie.OnItemClickListener
 import com.xwray.groupie.OnItemLongClickListener
 import com.xwray.groupie.Section
 import com.xwray.groupie.TouchCallback
-import com.xwray.groupie.example.core.InfiniteScrollListener
-import com.xwray.groupie.example.core.Prefs
-import com.xwray.groupie.example.core.SettingsActivity
-import com.xwray.groupie.example.core.decoration.CarouselItemDecoration
-import com.xwray.groupie.example.core.decoration.DebugItemDecoration
-import com.xwray.groupie.example.core.decoration.SwipeTouchCallback
-import com.xwray.groupie.example.viewbinding.databinding.ActivityMainBinding
-import com.xwray.groupie.example.viewbinding.item.CardItem
-import com.xwray.groupie.example.viewbinding.item.CarouselCardItem
-import com.xwray.groupie.example.viewbinding.item.ColumnItem
-import com.xwray.groupie.example.viewbinding.item.FullBleedCardItem
-import com.xwray.groupie.example.viewbinding.item.HeaderItem
-import com.xwray.groupie.example.viewbinding.item.HeartCardItem
-import com.xwray.groupie.example.viewbinding.item.SmallCardItem
-import com.xwray.groupie.example.viewbinding.item.SwipeToDeleteItem
-import com.xwray.groupie.example.viewbinding.item.UpdatableItem
+import com.xwray.groupie.example.databinding.ActivityMainBinding
+import com.xwray.groupie.example.decoration.CarouselItemDecoration
+import com.xwray.groupie.example.decoration.DebugItemDecoration
+import com.xwray.groupie.example.decoration.SwipeTouchCallback
+import com.xwray.groupie.example.item.CardItem
+import com.xwray.groupie.example.item.CarouselCardItem
+import com.xwray.groupie.example.item.ColumnItem
+import com.xwray.groupie.example.item.FullBleedCardItem
+import com.xwray.groupie.example.item.HeaderItem
+import com.xwray.groupie.example.item.HeartCardItem
+import com.xwray.groupie.example.item.SmallCardItem
+import com.xwray.groupie.example.item.SwipeToDeleteItem
+import com.xwray.groupie.example.item.UpdatableItem
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
