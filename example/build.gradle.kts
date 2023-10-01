@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.xwray.groupie.example"
-    compileSdk = rootProject.extra["sdkVersion"] as Int
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.xwray.groupie.example"
-        minSdk = rootProject.extra["minimumSdkVersion"] as Int
-        targetSdk = rootProject.extra["sdkVersion"] as Int
+        targetSdk = libs.versions.targetSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
         vectorDrawables.useSupportLibrary = true
     }
     lint {
@@ -31,7 +31,7 @@ android {
 dependencies {
     implementation(project(":library"))
 
-    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation(libs.androidx.appcompat)
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
@@ -40,5 +40,5 @@ dependencies {
     implementation("androidx.vectordrawable:vectordrawable-animated:1.1.0")
     implementation("androidx.vectordrawable:vectordrawable:1.1.0")
     implementation("com.google.android.material:material:1.4.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
+    implementation(libs.kotlin.stdlib)
 }

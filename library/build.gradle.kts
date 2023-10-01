@@ -9,10 +9,10 @@ val version = "2.10.1"
 
 android {
     namespace = "com.xwray.groupie"
-    compileSdk = rootProject.extra["sdkVersion"] as Int
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = rootProject.extra["minimumSdkVersion"] as Int
+        minSdk = libs.versions.minSdk.get().toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -32,10 +32,8 @@ android {
 
 dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.1")
-    testImplementation("junit:junit:${rootProject.extra["junit_version"]}")
-    testImplementation("org.mockito:mockito-core:${rootProject.extra["mockito_version"]}")
-    compileOnly("androidx.databinding:viewbinding:${rootProject.extra["viewbinding_version"]}") {
-        isTransitive = false
-    }
     implementation("androidx.annotation:annotation:1.3.0")
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito)
 }

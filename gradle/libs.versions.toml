@@ -1,0 +1,18 @@
+[versions]
+compileSdk = "34"
+targetSdk = "33"
+minSdk = "14"
+
+kotlin = "1.9.10"
+gradle-plugin = "8.1.2"
+
+
+[libraries]
+# buildscript.dependencies
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradle-plugin" }
+kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# dependencies
+androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
+junit = "junit:junit:4.13.2"
+mockito = "org.mockito:mockito-core:3.3.3"
