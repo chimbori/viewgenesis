@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.xwray.groupie.example.viewbinding.R;
+
 public class SettingsActivity extends AppCompatActivity {
 
     @Override

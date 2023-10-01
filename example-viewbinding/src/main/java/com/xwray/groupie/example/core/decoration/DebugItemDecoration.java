@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.xwray.groupie.example.core.Prefs;
-import com.xwray.groupie.example.core.R;
+import com.xwray.groupie.example.viewbinding.R;
 
 public class DebugItemDecoration extends RecyclerView.ItemDecoration {
 
