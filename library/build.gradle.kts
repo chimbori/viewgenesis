@@ -8,11 +8,11 @@ val group = "com.github.lisawray.groupie"
 val version = "2.10.1"
 
 android {
-    compileSdkVersion(rootProject.extra["sdkVersion"] as Int)
+    namespace = "com.xwray.groupie"
+    compileSdk = rootProject.extra["sdkVersion"] as Int
 
     defaultConfig {
-        minSdkVersion(rootProject.extra["minimumSdkVersion"] as Int)
-        targetSdkVersion(rootProject.extra["sdkVersion"] as Int)
+        minSdk = rootProject.extra["minimumSdkVersion"] as Int
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
