@@ -1,11 +1,8 @@
 plugins {
   id("com.android.library")
   id("kotlin-android")
+  id("maven-publish")
 }
-
-val archivesBaseName = "groupie"
-val group = "com.github.chimbori.groupie"
-val version = "2.10.1"
 
 android {
   namespace = "com.chimbori.groupie"
@@ -13,6 +10,16 @@ android {
 
   defaultConfig {
     minSdk = libs.versions.minSdk.get().toInt()
+    aarMetadata {
+      minCompileSdk = libs.versions.compileSdk.get().toInt()
+    }
+    publishing {
+      multipleVariants {
+        allVariants()
+        withJavadocJar()
+        withSourcesJar()
+      }
+    }
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
   signingConfigs {
@@ -27,6 +34,36 @@ android {
   }
   lint {
     abortOnError = false
+  }
+}
+
+publishing {
+  publications {
+    register<MavenPublication>("release") {
+      groupId = libs.versions.publish.group.get()
+      artifactId = libs.versions.publish.artifact.get()
+      version = libs.versions.publish.version.get()
+      afterEvaluate {
+        from(components["release"])
+      }
+      pom {
+        name.set(libs.versions.publish.name.get())
+        description.set(libs.versions.publish.description.get())
+        url.set(libs.versions.publish.url.get())
+        licenses {
+          license {
+            name.set("MIT License")
+            url.set("https://github.com/chimbori/groupie/blob/main/LICENSE.md")
+          }
+        }
+      }
+    }
+  }
+  repositories {
+    maven {
+      name = "local"
+      url = uri(project.layout.buildDirectory.dir("repo").get())
+    }
   }
 }
 
