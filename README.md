@@ -220,14 +220,48 @@ class MyLayoutItem: BindableItem<MyLayoutBinding>() {
 }
 ```
 
-# Contributing
-Contributions you say?  Yes please!
+## Contributing
 
-### Bug report? 
-- If at all possible, please attach a *minimal* sample project or code which reproduces the bug. 
-- Screenshots are also a huge help if the problem is visual.
-### Send a pull request!
-- If you're fixing a bug, please add a failing test or code that can reproduce the issue.
+### Pull Requests
 
+There is always lots of room for improvement, and we will gladly review your pull requests in a timely manner.
 
-If you try it out, I'd love to know what you think. Please hit up Lisa at [first][last]@gmail.com or on Twitter at [@lisawrayz](https://twitter.com/lisawrayz).
+To maintain the integrity of the library, we have a few simple expectations from all code submitted.
+
+1. Before sending a pull request, please open an issue to discuss your changes. Maintainers will offer feedback and
+   help validate your proposal and overall design before you spend any time writing code.
+1. Groupie is fully unit-tested, and we want to keep it that way. All new code should include unit tests.
+1. All current tests should continue to pass. Either update the tests in the same commit, or modify new code so that
+   existing tests continue to pass.
+1. Changes should be self-contained as far as possible. When implementing multiple independent improvements, each one
+   should be in its own commit.
+
+### Bug Reports
+
+Please attach a *minimal* sample project or code which reproduces the bug. Screenshots are also a huge help if the
+problem is visual.
+
+## License
+
+    MIT License
+
+    Copyright (c) 2016, Lisa Wray
+    Copyright (c) 2023, Chimbori
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
