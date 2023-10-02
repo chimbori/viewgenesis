@@ -1,6 +1,8 @@
 # Groupie
 
-<video style="margin-left:48px;float:right" src="https://raw.githubusercontent.com/chimbori/groupie/main/demo.mp4" width="270" height="600" controls autoplay muted loop></video>
+<a href="https://raw.githubusercontent.com/chimbori/groupie/main/demo.mp4" target="_blank">
+  <img style="margin-left:48px;float:right" src="https://raw.githubusercontent.com/chimbori/groupie/main/demo.gif" width="270" height="600">
+</a>
 
 Groupie is a simple, flexible library for complex RecyclerView layouts.
 
