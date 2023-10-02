@@ -14,34 +14,48 @@ Groupie supports [View Binding](https://developer.android.com/topic/libraries/vi
 
 ## Get Started
 
-```gradle
-implementation "com.github.lisawray.groupie:groupie:$groupie_version"
-```
+### Project Setup
 
-Groupie also has a support module for Android's [view binding](https://developer.android.com/topic/libraries/view-binding). This module also supports Android [data binding](https://developer.android.com/topic/libraries/data-binding/index.html), so if your project uses both data binding and view binding, you don't have to add the dependency on the data binding support module. [Setup here.](#view-binding)
+Groupie uses semantic versioning. If the API changes, then the major version will be incremented.
+Upgrading from one minor version to the next minor version within the same major version should not require any client code to be modified.
+The latest release is available via [GitHub Releases](https://github.com/chimbori/groupie/releases).
 
-```gradle
-implementation "com.github.lisawray.groupie:groupie:$groupie_version"
-implementation "com.github.lisawray.groupie:groupie-viewbinding:$groupie_version" 
-```
+1.  Project/`build.gradle.kts`
 
-### Note:
-If using `groupie-viewbinding` in a databinding project is only available when using Android Gradle Plugin 3.6.0 or higher.
+    ```kotlin
+    allprojects {
+      repositories {
+        maven { url "https://jitpack.io" }
+      }
+    }
+    ```
 
-If using an older Gradle Plugin version with databinding the you can use the standalone `groupie-databinding` library to generate view holders. [Setup here.](#data-binding)
+2.  Module/`build.gradle.kts`
 
-```gradle
-implementation "com.github.lisawray.groupie:groupie:$groupie_version"
-implementation "com.github.lisawray.groupie:groupie-databinding:$groupie_version" 
-```
+    ![https://img.shields.io/github/v/release/chimbori/groupie](https://img.shields.io/github/v/release/chimbori/groupie)
 
-You can also use Groupie with Java and your existing ViewHolders. 
+    ```kotlin
+    dependencies {
+      implementation("com.github.chimbori:groupie:0.0.0")  // Use the latest version number from above.
+    }
+    ```
 
-Which one to choose?  It's up to you and what your project already uses. You can even use Kotlin and data binding together.[<sup>*</sup>](#kotlin-and-data-binding) Or all your existing hand-written Java ViewHolders, and one new Kotlin item to try it out. Go crazy!  
-    
-## Get started
+3.  [View Binding](https://developer.android.com/topic/libraries/view-binding) (optional but highly recommended). Use **one** of the two steps below.
 
-Use a `GroupieAdapter` anywhere you would normally use a `RecyclerView.Adapter`, and attach it to your RecyclerView as usual.
+    - Module/`build.gradle.kts` (to enable View Binding for specific modules)
+    ```kotlin
+    android {
+      buildFeatures {
+        viewBinding = true
+      }
+    }
+    ```
+
+    - Project/`gradle.properties` (to enable View Binding for all modules in the project)
+    ```properties
+    android.defaults.buildfeatures.viewbinding=true
+    ```
+
 
 Kotlin
 ```kotlin
@@ -149,53 +163,8 @@ Finally, in your `Item<MyExistingViewHolder>`, override
 
 Items can also declare their own column span and whether they are draggable or swipeable.  
 
-# Gradle setup
+### Note:
 
-## Kotlin
-
-In your project level `build.gradle` file, include:
-
-```
-buildscript {
-    ext.kotlin_version = '1.6.21'
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-    }
-}
-```
-
-In new projects, the `settings.gradle` file has a `dependencyResolutionManagement` block, which needs to specify the repository as well:
-
-```
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }  // <--
-        jcenter() // Warning: this repository is going to shut down soon
-    }
-}
-```
-
-In your app `build.gradle` file, include:
-
-```
-implementation 'com.github.lisawray.groupie:groupie:$groupie_version'
-```
 
 ## View binding
 
