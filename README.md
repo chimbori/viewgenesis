@@ -27,7 +27,9 @@ The latest release is available via [GitHub Releases](https://github.com/chimbor
     ```kotlin
     allprojects {
       repositories {
+        // …
         maven { url "https://jitpack.io" }
+        // …
       }
     }
     ```
@@ -38,7 +40,9 @@ The latest release is available via [GitHub Releases](https://github.com/chimbor
 
     ```kotlin
     dependencies {
+      // …
       implementation("com.github.chimbori:groupie:0.0.0")  // Use the latest version number from above.
+      // …
     }
     ```
 
@@ -58,144 +62,98 @@ The latest release is available via [GitHub Releases](https://github.com/chimbor
     android.defaults.buildfeatures.viewbinding=true
     ```
 
+## Concepts & Sample Code
 
-Kotlin
+Use a `GroupieAdapter` anywhere you would normally use a `RecyclerView.Adapter`, and attach it to your RecyclerView as usual.
+
+`SomeActivity.kt` or `SomeFragment.kt`:
 ```kotlin
-val adapter = GroupieAdapter()
-recyclerView.adapter = adapter
+override fun onCreate(savedInstanceState: Bundle?) {
+  // …
+
+  val groupieAdapter = GroupieAdapter()
+  recyclerView.adapter = groupieAdapter
+
+  // …
+}
 ```
 
-Java
-```java
-GroupieAdapter adapter = new GroupieAdapter();
-recyclerView.setAdapter(adapter);
-```
-    
-## Groups
+### Groups
 
-Groups are the building block of Groupie.  An individual `Item` (the unit which an adapter inflates and recycles) is a Group of 1.  You can add Groups and Items interchangeably to the adapter.
+Groups are the building blocks of Groupie.
+An individual `Item` (the unit which an adapter inflates and recycles) is a Group of one.
+You can add Groups and Items interchangeably to the adapter.
 
-Kotlin
 ```kotlin
-groupAdapter += HeaderItem()
-groupAdapter += CommentItem()
+groupieAdapter += HeaderItem()
+groupieAdapter += CommentItem()
 
 val section = Section()
 section.setHeader(HeaderItem())
 section.addAll(bodyItems)
-groupAdapter += section
+groupieAdapter += section
 ```
 
-Java
-```java
-groupAdapter.add(new HeaderItem());
-groupAdapter.add(new CommentItem());
+Modifying the contents of the `GroupieAdapter` in any way automatically sends change notifications.
+Adding an item calls `notifyItemAdded()`; adding a group calls `notifyItemRangeAdded()`, etc.
 
-Section section = new Section();
-section.setHeader(new HeaderItem());
-section.addAll(bodyItems);
-groupAdapter.add(section);
-```
-    
-Modifying the contents of the GroupieAdapter in any way automatically sends change notifications.  Adding an item calls `notifyItemAdded()`; adding a group calls `notifyItemRangeAdded()`, etc.
+Modifying the contents of a Group automatically notifies its parent.
+When notifications reach the GroupieAdapter, it dispatches final change notifications.
+There’s never a need to manually notify or keep track of indices, no matter how you structure your data.
 
-Modifying the contents of a Group automatically notifies its parent.  When notifications reach the GroupieAdapter, it dispatches final change notifications.  There's never a need to manually notify or keep track of indices, no matter how you structure your data.
-
-```java
-section.removeHeader(); // results in a remove event for 1 item in the adapter, at position 2
-```
-    
 There are a few simple implementations of Groups within the library:
-- `Section`, a list of body content with an optional header group and footer group.  It supports diffing and animating moves, updates and other changes
+
+- `Section`, a list of body content with an optional header group and footer group.
+  It supports diffing and animating moves, updates, and other changes.
 - `ExpandableGroup`, a single parent group with a list of body content that can be toggled hidden or shown.
-    
-Groupie tries not to assume what features your groups require.  Instead, groups are flexible and composable.  They can be combined and nested to arbitrary depth.  
-    
-Life (and mobile design) is complicated, so groups are designed so that making new ones and defining their behavior is easy. You should make many small, simple, custom groups as the need strikes you.
 
-You can implement the `Group` interface directly if you want.  However, in most cases, you can extend `Section` or the base implementation, `NestedGroup`.  Section supports common RV paradigms like diffing, headers, footers, and placeholders.  NestedGroup provides support for arbitrary nesting of groups, registering/unregistering listeners, and fine-grained change notifications to support animations and updating the adapter.
-    
-## Items
+Groupie tries not to assume what features your groups require.
+Instead, groups are flexible and composable.
+They can be combined and nested to arbitrary depth.
 
-Groupie abstracts away the complexity of multiple item view types.  Each Item declares a view layout id, and gets a callback to `bind` the inflated layout.  That's all you need; you can add your new item directly to a `GroupieAdapter` and call it a day.
+You can implement the `Group` interface directly if you want.
+However, in most cases, you can extend `Section` or the base implementation, `NestedGroup`.
+`Section` supports common RecyclerView paradigms like diffing, headers, footers, and placeholders.
+`NestedGroup` provides support for arbitrary nesting of groups, registering/unregistering listeners, and fine-grained change notifications to support animations and updating the adapter.
 
-### Item with data binding:
+### Items
 
-The `Item` class gives you simple callbacks to bind your model object to the generated binding.  Because of data binding, there's no need to write a view holder.  
+Groupie abstracts away the complexity of multiple item view types.
+Each Item declares a view layout id, and gets a callback to `bind` the inflated layout.
 
-```java
-public class SongItem extends BindableItem<SongBinding> {
+The `Item` class gives you simple callbacks to bind your model object to the generated binding.
 
-    public SongItem(Song song) {
-        this(song);
-    }    
+`R.layout.item_card`:
 
-    @Override public void bind(SongBinding binding, int position) {
-        binding.setSong(song);
-    }
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground">
 
-    @Override public int getLayout() {
-        return R.layout.song;
-    }
-}
+  <TextView
+    android:id="@+id/item_card_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+</FrameLayout>
 ```
 
-If you're converting existing ViewHolders, you can reference any named views (e.g. `R.id.title`) directly from the binding instead. 
-```java
-    @Override public void bind(SongBinding binding, int position) {
-        binding.title.setText(song.getTitle());
-    }
-```
+Class `ItemCardBinding` will be auto-generated when `viewBinding = true`.
 
-You can also mix and match `BindableItem` and other `Items` in the adapter, so you can leave legacy viewholders as they are by making an `Item<MyExistingViewHolder>`.  
-
-### Legacy item (your own ViewHolder)
-You can leave legacy viewholders as they are by converting `MyExistingViewHolder` to extend `GroupieViewHolder` rather than `RecyclerView.ViewHolder`. Make sure to change the imports to `com.xwray.groupie.Item` and `com.xwray.groupie.GroupieViewHolder`.
-
-Finally, in your `Item<MyExistingViewHolder>`, override 
-
-```java
-    @Override
-    public MyExistingViewHolder createViewHolder(@NonNull View itemView) {
-        return new MyExistingViewHolder(itemView);
-    }
-```
-
-### Note: 
-
-Items can also declare their own column span and whether they are draggable or swipeable.  
-
-### Note:
-
-
-## View binding
-
-Add to your app module's `build.gradle`:
-
-```gradle
-android {
-    buildFeatures {
-        viewBinding true
-    }
-}
-
-dependencies {
-    implementation "com.github.lisawray.groupie:groupie:$groupie_version"
-    implementation "com.github.lisawray.groupie:groupie-viewbinding:$groupie_version"
-}
-```
-
-Then:
-
+`CardItem.kt`
 ```kotlin
-class MyLayoutItem: BindableItem<MyLayoutBinding>() {
-    override fun initializeViewBinding(view: View): MyLayoutBinding {
-        return MyLayoutBinding.bind(view)
-    }
-
-    // Other implementations...
+class CardItem : BindableItem<ItemCardBinding>() {
+  override fun getLayout() = R.layout.item_card
+  override fun initializeViewBinding(view: View) = ItemCardBinding.bind(view)
+  override fun bind(viewBinding: ItemCardBinding, position: Int) {
+    viewBinding.itemCardText.text = "Hello, World!"
+  }
 }
 ```
+
+Items can also declare their own column span and whether they are draggable or swipeable.
 
 ## Contributing
 
