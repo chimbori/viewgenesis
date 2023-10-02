@@ -1,12 +1,18 @@
-# groupie
+# Groupie
 
-Groupie is a simple, flexible library for complex RecyclerView layouts.  
+<video style="margin-left:48px;float:right" src="https://raw.githubusercontent.com/chimbori/groupie/main/demo.mp4" width="270" height="600" controls autoplay muted loop></video>
 
-Groupie lets you treat your content as logical groups and handles change notifications for you -- think sections with headers and footers, expandable groups, blocks of vertical columns, and much more.  It makes it easy to handle asynchronous content updates and insertions and user-driven content changes.  At the item level, it abstracts the boilerplate of item view types, item layouts, viewholders, and span sizes.  
- 
-<img src="http://i.imgur.com/eftOE0v.gif" width="300px"/>
+Groupie is a simple, flexible library for complex RecyclerView layouts.
 
-# Try it out:
+Groupie lets you treat your content as logical groups and handles change notifications for you — think sections with headers and footers, expandable groups, blocks of vertical columns, and much more.
+
+It makes it easy to handle asynchronous content updates, insertions, and user-driven content changes.
+
+At the item level, it abstracts away the boilerplate of item view types, item layouts, viewholders, and span sizes.
+
+Groupie supports [View Binding](https://developer.android.com/topic/libraries/view-binding) and legacy `findViewById` binding.
+
+## Get Started
 
 ```gradle
 implementation "com.github.lisawray.groupie:groupie:$groupie_version"
