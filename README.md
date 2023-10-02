@@ -220,61 +220,6 @@ class MyLayoutItem: BindableItem<MyLayoutBinding>() {
 }
 ```
 
-### Note:
-
-If you use `groupie-databinding` with data binding classes and your layouts have some variables or [observable objects](https://developer.android.com/topic/libraries/data-binding/observability), don't forget to run [`executePendingBindings`](https://developer.android.com/topic/libraries/data-binding/generated-binding#immediate_binding) at the last point in `bind`.
-
-## Data binding
-
-Add to your app module's build.gradle:
-
-```gradle
-android {
-    buildFeatures {
-        dataBinding true
-    }
-}
-
-dependencies {
-    implementation "com.github.lisawray.groupie:groupie:$groupie_version"
-    implementation "com.github.lisawray.groupie:groupie-databinding:$groupie_version"
-}
-```
-
-Then, just wrap each item layout in `<layout>` tags.  (The `<data>` section is optional.)  
-
-`layout/item_song.xml`
-```xml
-<layout xmlns:android="http://schemas.android.com/apk/res/android" 
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable name="song" type="com.example.Song" />
-    </data>
-
-    <FrameLayout 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@{song.title}"
-            tools:text="A Song Title" />
-
-    </FrameLayout>
-</layout>
-```
-
-Bindings are only generated for layouts wrapped with <layout/> tags, so there's no need to convert the rest of your project (unless you want to).
-
-You can add a `<data>` section to directly bind a model or ViewModel, but you don't have to.  The generated view bindings alone are a huge time saver.
-
-### Kotlin AND data binding / view binding?
-Sure, why not?  Follow all the instructions from *both* sections above.
-You only need to include the `groupie-databinding` or `groupie-viewbinding` dependency.
-
 # Contributing
 Contributions you say?  Yes please!
 
