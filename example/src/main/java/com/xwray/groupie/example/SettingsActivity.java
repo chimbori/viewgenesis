@@ -6,7 +6,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
-import com.chimbori.groupie.example.R;
+import com.chimbori.groupiex.example.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

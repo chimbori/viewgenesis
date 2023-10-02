@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-  namespace = "com.chimbori.groupie"
+  namespace = "com.chimbori.groupiex"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
@@ -53,7 +53,7 @@ publishing {
         licenses {
           license {
             name.set("MIT License")
-            url.set("https://github.com/chimbori/groupie/blob/main/LICENSE.md")
+            url.set("https://github.com/chimbori/groupiex/blob/main/LICENSE.md")
           }
         }
       }

@@ -1,7 +1,7 @@
 package com.xwray.groupie.example
 
 import androidx.annotation.ColorInt
-import com.chimbori.groupie.example.R
+import com.chimbori.groupiex.example.R
 import com.xwray.groupie.example.decoration.HeaderItemDecoration
 
 class HeaderItemDecoration(

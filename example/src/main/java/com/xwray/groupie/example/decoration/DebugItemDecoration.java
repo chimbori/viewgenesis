@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.chimbori.groupie.example.R;
+import com.chimbori.groupiex.example.R;
 import com.xwray.groupie.example.Prefs;
 
 public class DebugItemDecoration extends RecyclerView.ItemDecoration {

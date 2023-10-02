@@ -1,26 +1,23 @@
-# Groupie
+# GroupieX
 
-Groupie is a simple, flexible library for complex RecyclerView layouts.
+GroupieX is a simple, flexible library for complex RecyclerView layouts. It is a fork of [Groupie](https://github.com/lisawray/groupie).
 
-Groupie lets you treat your content as logical groups and handles change notifications for you — think sections with headers and footers, expandable groups, blocks of vertical columns, and much more.
+- GroupieX lets you treat your content as logical groups and handles change notifications for you — think sections with headers and footers, expandable groups, blocks of vertical columns, and much more.
+- It makes it easy to handle asynchronous content updates, insertions, and user-driven content changes.
+- At the item level, it abstracts away the boilerplate of item view types, item layouts, viewholders, and span sizes.
+- GroupieX supports [View Binding](https://developer.android.com/topic/libraries/view-binding) and legacy `findViewById` binding.
 
-It makes it easy to handle asynchronous content updates, insertions, and user-driven content changes.
-
-At the item level, it abstracts away the boilerplate of item view types, item layouts, viewholders, and span sizes.
-
-Groupie supports [View Binding](https://developer.android.com/topic/libraries/view-binding) and legacy `findViewById` binding.
-
-<a href="https://raw.githubusercontent.com/chimbori/groupie/main/demo.mp4" target="_blank">
-  <img src="https://raw.githubusercontent.com/chimbori/groupie/main/demo.gif" width="270" height="600">
+<a href="https://raw.githubusercontent.com/chimbori/groupiex/main/demo.mp4" target="_blank">
+  <img src="https://raw.githubusercontent.com/chimbori/groupiex/main/demo.gif" width="270" height="600">
 </a>
 
 ## Get Started
 
 ### Project Setup
 
-Groupie uses semantic versioning. If the API changes, then the major version will be incremented.
+GroupieX uses semantic versioning. If the API changes, then the major version will be incremented.
 Upgrading from one minor version to the next minor version within the same major version should not require any client code to be modified.
-The latest release is available via [GitHub Releases](https://github.com/chimbori/groupie/releases).
+The latest release is available via [GitHub Releases](https://github.com/chimbori/groupiex/releases).
 
 1.  Project/`build.gradle.kts`
 
@@ -36,12 +33,12 @@ The latest release is available via [GitHub Releases](https://github.com/chimbor
 
 2.  Module/`build.gradle.kts`
 
-    ![https://img.shields.io/github/v/release/chimbori/groupie](https://img.shields.io/github/v/release/chimbori/groupie)
+    ![https://img.shields.io/github/v/release/chimbori/groupiex](https://img.shields.io/github/v/release/chimbori/groupiex)
 
     ```kotlin
     dependencies {
       // …
-      implementation("com.github.chimbori:groupie:0.0.0")  // Use the latest version number from above.
+      implementation("com.github.chimbori:groupiex:0.0.0")  // Use the latest version number from above.
       // …
     }
     ```
@@ -154,6 +151,34 @@ class CardItem : BindableItem<ItemCardBinding>() {
 ```
 
 Items can also declare their own column span and whether they are draggable or swipeable.
+
+## Why Groupie → GroupieX?
+
+The original Groupie library is well-designed and strikes the perfect balance between offering a clean API and a powerful implementation.
+
+However, as of 2023, it appears to have become unmaintained. Active releases ceased in 2019, and there have been minor maintenance releases (approximately 1-2 per year) since then. The last known release was in May 2022. Some pull requests have not been reviewed since 2021.
+
+Android development is fast-evolving, and apps cannot risk depending on unmaintained libraries. Making changes or bug-fixes to outdated libraries with modern toolchains and IDEs becomes harder.
+
+To ensure that our apps can continue to rely on up-to-date dependencies, we decided to fork Groupie, revive its development, and bring it up to date with modern Android. Specifically, we made the following changes:
+
+- Updated Gradle from 7.x to 8.x
+- Updated Android Gradle Plugin from 7.0.4 to 8.1.2
+- Updated Kotlin from 1.6.21 to 1.9.10
+- Updated `compileSdk` and `targetSdk` for sample app from `31` to `34`
+- Switched to Kotlin DSL from Groovy in Gradle
+- Switched to GitHub Actions from CircleCI
+- Removed the `android-kotlin-extensions` module, since Kotlin Synthetics was [deprecated in 2020](https://android-developers.googleblog.com/2020/11/the-future-of-kotlin-android-extensions.html) and [removed in 2022](https://android-developers.googleblog.com/2022/02/discontinuing-kotlin-synthetics-for-views.html).
+- Removed `jCenter()` which [closed down in 2021](https://developer.android.com/build/jcenter-migration).
+- Consolidated the `groupie-viewbinding` artifact into the main artifact, since it is now the [recommended solution](https://developer.android.com/topic/libraries/view-binding).
+
+The name is inspired by Android → AndroidX, where modern Android APIs and paradigms are quickly updated in a backwards-compatible manner in AndroidX libraries.
+
+### Migrating to GroupieX
+
+GroupieX is distributed under the same permissive open-source MIT license as Groupie, so all projects that used Groupie can migrate seamlessly to GroupieX.
+
+GroupieX release 3.x is API-compatible with Groupie 2.x, so GroupieX can be used as a drop-in replacement for Groupie. Just change the artifact coordinates in your Gradle file (assuming you do not rely on any deprecated APIs in your project).
 
 ## Contributing
 

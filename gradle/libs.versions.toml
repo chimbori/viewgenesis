@@ -5,13 +5,13 @@ minSdk = "14"
 kotlin = "1.9.10"
 gradle-plugin = "8.1.2"
 
-publish-group = "com.github.chimbori.groupie"
-publish-artifact = "groupie"
+publish-group = "com.github.chimbori.groupiex"
+publish-artifact = "groupiex"
 publish-version = "3.0.3"
 
-publish-name = "Groupie"
-publish-description = "Groupie helps you display and manage complex RecyclerView layouts"
-publish-url = "https://github.com/chimbori/groupie"
+publish-name = "GroupieX"
+publish-description = "GroupieX helps you display and manage complex RecyclerView layouts"
+publish-url = "https://github.com/chimbori/groupiex"
 
 [libraries]
 # buildscript.dependencies
