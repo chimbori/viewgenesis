@@ -118,10 +118,6 @@ public class Section extends NestedGroup {
 
     @Override
     public void replaceAll(@NonNull Collection<? extends Group> groups) {
-        if (groups.isEmpty()) {
-            return;
-        }
-
         super.replaceAll(groups);
         children.clear();
         children.addAll(groups);

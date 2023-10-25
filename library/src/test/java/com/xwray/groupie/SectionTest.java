@@ -846,4 +846,19 @@ public class SectionTest {
         verify(groupAdapter).onItemRangeInserted(group, 1, 1);
         verifyNoMoreInteractions(groupAdapter);
     }
+
+    @Test
+    public void replaceAllRemovesLastElement() {
+        List<Item> children = new ArrayList<>();
+        children.add(new AlwaysUpdatingItem(1));
+        children.add(new AlwaysUpdatingItem(2));
+
+        Section group = new Section();
+        group.replaceAll(children);
+
+        assertEquals(2, group.getItemCount());
+
+        group.replaceAll(new ArrayList<Group>());
+        assertEquals(0, group.getItemCount());
+    }
 }
