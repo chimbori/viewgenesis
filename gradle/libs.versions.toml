@@ -7,7 +7,7 @@ gradle-plugin = "8.1.2"
 
 publish-group = "com.github.chimbori.groupiex"
 publish-artifact = "groupiex"
-publish-version = "3.0.4"
+publish-version = "3.0.5"
 
 publish-name = "GroupieX"
 publish-description = "GroupieX helps you display and manage complex RecyclerView layouts"
