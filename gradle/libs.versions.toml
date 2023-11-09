@@ -31,5 +31,5 @@ androidx-vectordrawable-animated = "androidx.vectordrawable:vectordrawable-anima
 androidx-vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
 junit = "junit:junit:4.13.2"
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
-material = "com.google.android.material:material:1.9.0"
+material = "com.google.android.material:material:1.10.0"
 mockito = "org.mockito:mockito-core:3.3.3"
