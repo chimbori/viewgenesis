@@ -52,8 +52,8 @@ publishing {
         url.set(libs.versions.publish.url.get())
         licenses {
           license {
-            name.set("MIT License")
-            url.set("https://github.com/chimbori/viewgenesis/blob/main/LICENSE.md")
+            name.set("MIT")
+            url.set("https://opensource.org/licenses/MIT")
           }
         }
       }
