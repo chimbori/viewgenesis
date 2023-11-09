@@ -3,8 +3,8 @@ package com.xwray.groupie.example.item
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.chimbori.groupiex.example.R
-import com.chimbori.groupiex.example.databinding.ItemCarouselBinding
+import com.chimbori.viewgenesis.example.R
+import com.chimbori.viewgenesis.example.databinding.ItemCarouselBinding
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.OnItemClickListener

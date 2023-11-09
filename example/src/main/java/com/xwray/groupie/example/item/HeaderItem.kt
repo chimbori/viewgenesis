@@ -3,8 +3,8 @@ package com.xwray.groupie.example.item
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.chimbori.groupiex.example.R
-import com.chimbori.groupiex.example.databinding.ItemHeaderBinding
+import com.chimbori.viewgenesis.example.R
+import com.chimbori.viewgenesis.example.databinding.ItemHeaderBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
 open class HeaderItem @JvmOverloads constructor(

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-  namespace = "com.chimbori.groupiex"
+  namespace = "com.chimbori.viewgenesis"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
@@ -53,7 +53,7 @@ publishing {
         licenses {
           license {
             name.set("MIT License")
-            url.set("https://github.com/chimbori/groupiex/blob/main/LICENSE.md")
+            url.set("https://github.com/chimbori/viewgenesis/blob/main/LICENSE.md")
           }
         }
       }

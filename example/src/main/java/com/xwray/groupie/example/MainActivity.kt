@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.chimbori.groupiex.example.R
-import com.chimbori.groupiex.example.databinding.ActivityMainBinding
+import com.chimbori.viewgenesis.example.R
+import com.chimbori.viewgenesis.example.databinding.ActivityMainBinding
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupieAdapter

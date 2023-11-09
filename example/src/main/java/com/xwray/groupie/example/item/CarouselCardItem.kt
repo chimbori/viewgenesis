@@ -2,8 +2,8 @@ package com.xwray.groupie.example.item
 
 import android.view.View
 import androidx.annotation.ColorInt
-import com.chimbori.groupiex.example.R
-import com.chimbori.groupiex.example.databinding.ItemSquareCardBinding
+import com.chimbori.viewgenesis.example.R
+import com.chimbori.viewgenesis.example.databinding.ItemSquareCardBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
 /**

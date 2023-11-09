@@ -1,23 +1,23 @@
-# GroupieX
+# ViewGenesis
 
-GroupieX is a simple, flexible library for complex RecyclerView layouts. It is a fork of [Groupie](https://github.com/lisawray/groupie).
+ViewGenesis is a simple, flexible library for complex RecyclerView layouts. It is a fork of [Groupie](https://github.com/lisawray/groupie).
 
-- GroupieX lets you treat your content as logical groups and handles change notifications for you — think sections with headers and footers, expandable groups, blocks of vertical columns, and much more.
+- ViewGenesis lets you treat your content as logical groups and handles change notifications for you — think sections with headers and footers, expandable groups, blocks of vertical columns, and much more.
 - It makes it easy to handle asynchronous content updates, insertions, and user-driven content changes.
 - At the item level, it abstracts away the boilerplate of item view types, item layouts, viewholders, and span sizes.
-- GroupieX supports [View Binding](https://developer.android.com/topic/libraries/view-binding) and legacy `findViewById` binding.
+- ViewGenesis supports [View Binding](https://developer.android.com/topic/libraries/view-binding) and legacy `findViewById` binding.
 
-<a href="https://raw.githubusercontent.com/chimbori/groupiex/main/demo.mp4" target="_blank">
-  <img src="https://raw.githubusercontent.com/chimbori/groupiex/main/demo.gif" width="270" height="600">
+<a href="https://raw.githubusercontent.com/chimbori/viewgenesis/main/demo.mp4" target="_blank">
+  <img src="https://raw.githubusercontent.com/chimbori/viewgenesis/main/demo.gif" width="270" height="600">
 </a>
 
 ## Get Started
 
 ### Project Setup
 
-GroupieX uses semantic versioning. If the API changes, then the major version will be incremented.
+ViewGenesis uses semantic versioning. If the API changes, then the major version will be incremented.
 Upgrading from one minor version to the next minor version within the same major version should not require any client code to be modified.
-The latest release is available via [GitHub Releases](https://github.com/chimbori/groupiex/releases).
+The latest release is available via [GitHub Releases](https://github.com/chimbori/viewgenesis/releases).
 
 1.  Project/`build.gradle.kts`
 
@@ -33,12 +33,12 @@ The latest release is available via [GitHub Releases](https://github.com/chimbor
 
 2.  Module/`build.gradle.kts`
 
-    ![https://img.shields.io/github/v/release/chimbori/groupiex](https://img.shields.io/github/v/release/chimbori/groupiex)
+    ![https://img.shields.io/github/v/release/chimbori/viewgenesis](https://img.shields.io/github/v/release/chimbori/viewgenesis)
 
     ```kotlin
     dependencies {
       // …
-      implementation("com.github.chimbori:groupiex:0.0.0")  // Use the latest version number from above.
+      implementation("com.github.chimbori:viewgenesis:0.0.0")  // Use the latest version number from above.
       // …
     }
     ```
@@ -152,7 +152,7 @@ class CardItem : BindableItem<ItemCardBinding>() {
 
 Items can also declare their own column span and whether they are draggable or swipeable.
 
-## Why Groupie → GroupieX?
+## Why Groupie → ViewGenesis?
 
 The original Groupie library is well-designed and strikes the perfect balance between offering a clean API and a powerful implementation.
 
@@ -172,13 +172,11 @@ To ensure that our apps can continue to rely on up-to-date dependencies, we deci
 - Removed `jCenter()` which [closed down in 2021](https://developer.android.com/build/jcenter-migration).
 - Consolidated the `groupie-viewbinding` artifact into the main artifact, since it is now the [recommended solution](https://developer.android.com/topic/libraries/view-binding).
 
-The name is inspired by Android → AndroidX, where modern Android APIs and paradigms are quickly updated in a backwards-compatible manner in AndroidX libraries.
+### Migrating to ViewGenesis
 
-### Migrating to GroupieX
+ViewGenesis is distributed under the same permissive open-source MIT license as Groupie, so all projects that used Groupie can migrate seamlessly to ViewGenesis.
 
-GroupieX is distributed under the same permissive open-source MIT license as Groupie, so all projects that used Groupie can migrate seamlessly to GroupieX.
-
-GroupieX release 3.x is API-compatible with Groupie 2.x, so GroupieX can be used as a drop-in replacement for Groupie. Just change the artifact coordinates in your Gradle file (assuming you do not rely on any deprecated APIs in your project).
+ViewGenesis release 3.x is API-compatible with Groupie 2.x, so ViewGenesis can be used as a drop-in replacement for Groupie. Just change the artifact coordinates in your Gradle file (assuming you do not rely on any deprecated APIs in your project).
 
 ## Contributing
 

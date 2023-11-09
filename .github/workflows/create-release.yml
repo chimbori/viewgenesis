@@ -44,8 +44,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: library/build/repo/com/github/chimbori/groupiex/groupiex/${{ env.VERSION }}/groupiex-${{ env.VERSION }}-sources.jar
-        asset_name: groupiex-${{ env.VERSION }}-sources.jar
+        asset_path: library/build/repo/com/github/chimbori/viewgenesis/viewgenesis/${{ env.VERSION }}/viewgenesis-${{ env.VERSION }}-sources.jar
+        asset_name: viewgenesis-${{ env.VERSION }}-sources.jar
         asset_content_type: application/java-archive
 
     - name: Upload Android Archive to GitHub Release
@@ -54,6 +54,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: library/build/repo/com/github/chimbori/groupiex/groupiex/${{ env.VERSION }}/groupiex-${{ env.VERSION }}.aar
-        asset_name: groupiex-${{ env.VERSION }}.aar
+        asset_path: library/build/repo/com/github/chimbori/viewgenesis/viewgenesis/${{ env.VERSION }}/viewgenesis-${{ env.VERSION }}.aar
+        asset_name: viewgenesis-${{ env.VERSION }}.aar
         asset_content_type: application/java-archive

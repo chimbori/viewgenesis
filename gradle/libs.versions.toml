@@ -5,13 +5,13 @@ minSdk = "14"
 kotlin = "1.9.10"
 gradle-plugin = "8.1.2"
 
-publish-group = "com.github.chimbori.groupiex"
-publish-artifact = "groupiex"
+publish-group = "com.github.chimbori.viewgenesis"
+publish-artifact = "viewgenesis"
 publish-version = "3.0.5"
 
-publish-name = "GroupieX"
-publish-description = "GroupieX helps you display and manage complex RecyclerView layouts"
-publish-url = "https://github.com/chimbori/groupiex"
+publish-name = "ViewGenesis"
+publish-description = "ViewGenesis helps you display and manage complex RecyclerView layouts"
+publish-url = "https://github.com/chimbori/viewgenesis"
 
 [libraries]
 # buildscript.dependencies
