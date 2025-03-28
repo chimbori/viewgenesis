@@ -17,8 +17,6 @@ jobs:
 
     - name: Checkout Submodules
       uses: actions/checkout@v4
-    - name: Validate Gradle Wrapper
-      uses: gradle/actions/wrapper-validation@v3
 
     - name: Run Lint
       run: ./gradlew lint --console plain
